@@ -6,19 +6,21 @@ import kotlin.collections.ArrayList
 
 class User {
     var name: String? = null
-    var email:String? = null
-    var uid:String? = null
-    var phone:String? = null
-    var bio:String? = null
+    var email: String? = null
+    var uid: String? = null
+    var phone: String? = null
+    var bio: String? = null
+    var status: Boolean? = false
+    var photoUri:String?=null
 
 
-    constructor(){}
+    constructor() {}
 
-    constructor(name: String? , email:String?, uid : String?,phone:String?,bio:String?){
+    constructor(name: String?, email: String?, uid: String?, phone: String?, bio: String?) {
         this.name = name
         this.email = email
         this.uid = uid
-        this.phone=phone
-        this.bio=bio
+        this.phone = phone
+        this.bio = bio
     }
 }

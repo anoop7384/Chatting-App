@@ -8,13 +8,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:reverseLayout="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:foregroundGravity="bottom"
 
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/LinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,6 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
+        android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chatRecyclerView"
         app:layout_constraintVertical_bias="1.0">
@@ -40,18 +43,27 @@
         <EditText
             android:id="@+id/messageBox"
             android:layout_height="50dp"
-            android:layout_weight="85"
+            android:layout_weight="100"
             android:paddingStart="10dp"
             android:backgroundTint="#2196F3"
             android:ems="10"
             android:hint="Type a message"
-            android:inputType="textPersonName"  android:layout_width="0dp"/>
+            android:inputType="textMultiLine"  android:layout_width="0dp"/>
+
+        <ImageView
+            android:id="@+id/imageBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/app_theme"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <ImageView
             android:id="@+id/sendBtn"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="15"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
             android:background="#00BCD4"
             app:srcCompat="@android:drawable/ic_menu_send" />
     </LinearLayout>

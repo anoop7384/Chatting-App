@@ -20,7 +20,7 @@ class Signup : AppCompatActivity() {
     private lateinit var editName: EditText
     private lateinit var editEmail: EditText
     private lateinit var editPassword: EditText
-    private lateinit var editPhone:EditText
+    private lateinit var editPhone: EditText
     private lateinit var btnGoback: Button
     private lateinit var btnsignup: Button
     private lateinit var mAuth: FirebaseAuth
@@ -37,52 +37,71 @@ class Signup : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        editName=findViewById(R.id.edit_name)
-        editEmail=findViewById(R.id.edit_email)
-        editPhone=findViewById(R.id.edit_phone)
-        editPassword=findViewById(R.id.edit_password)
-        btnGoback=findViewById(R.id.btn_goback)
-        btnsignup=findViewById(R.id.btn_signup)
+        editName = findViewById(R.id.edit_name)
+        editEmail = findViewById(R.id.edit_email)
+        editPhone = findViewById(R.id.edit_phone)
+        editPassword = findViewById(R.id.edit_password)
+        btnGoback = findViewById(R.id.btn_goback)
+        btnsignup = findViewById(R.id.btn_signup)
 
-        btnGoback.setOnClickListener{
-            val intent = Intent(this, Login::class.java)
+        btnGoback.setOnClickListener {
+            val intent = Intent(this, Send_Notification::class.java)
             startActivity(intent)
         }
 
-        btnsignup.setOnClickListener{
+        btnsignup.setOnClickListener {
             loading.startLoading()
-            val name=editName.text.toString()
-            val email= editEmail.text.toString()
-            val password = editPassword.text.toString()
-            val phone=editPhone.text.toString()
-            val bio=""
+            val name = editName.text.toString().trim()
+            val email = editEmail.text.toString().trim()
+            val password = editPassword.text.toString().trim()
+            val phone = editPhone.text.toString().trim()
+            val bio = "No bio added"
 
-            signup(name,email,password,phone,bio,loading)
+            signup(name, email, password, phone, bio, loading)
         }
 
     }
 
-    private fun signup(name:String,email:String, password:String,phone:String,bio:String,loading: Loading){
-
+    private fun signup(
+        name: String,
+        email: String,
+        password: String,
+        phone: String,
+        bio: String,
+        loading: Loading
+    ) {
+        if (name == "" || email == "" || password == "" || phone == "") {
+            Toast.makeText(this@Signup, "Cannot leave a field empty", Toast.LENGTH_SHORT).show()
+        }
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    addUserToDatabase(name,email,mAuth.currentUser?.uid!!,phone,bio)
+                    addUserToDatabase(name, email, mAuth.currentUser?.uid!!, phone, bio)
                     loading.isDismiss()
                     val intent = Intent(this@Signup, MainActivity::class.java)
                     finish()
                     startActivity(intent)
                 } else {
                     loading.isDismiss()
-                    Toast.makeText(this@Signup,"There is some error",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@Signup,
+                        task.exception?.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
     }
 
-    private fun addUserToDatabase(name:String, email:String,uid:String,phone:String,bio:String?){
-        mDbRef = FirebaseDatabase.getInstance().getReference()
+    private fun addUserToDatabase(
+        name: String,
+        email: String,
+        uid: String,
+        phone: String,
+        bio: String?
+    ) {
+        mDbRef = FirebaseDatabase.getInstance().reference
 
-        mDbRef.child("users").child(uid).setValue(User(name,email,uid,phone,bio))
+        mDbRef.child("users").child(uid).setValue(User(name, email, uid, phone, bio))
     }
 
 }

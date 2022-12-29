@@ -4,33 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".EditProfile">
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/profileImage"
+        android:id="@+id/profileEditImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
-        android:contentDescription="@string/userprofile"
+        android:contentDescription="@string/changepic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile"
-        app:civ_border_color="@color/black"
-        app:civ_border_width="2dp"
-        />
+        tools:srcCompat="@drawable/profile" />
+
+    <Button
+        android:id="@+id/profileUpload"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/app_theme"
+        android:text="@string/upload_profile_picture"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileEditImage" />
+
+
 
 
     <LinearLayout
         android:id="@+id/verticalLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingStart="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage">
+        android:paddingEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/profileUpload">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,37 +62,12 @@
                 android:layout_marginTop="20dp"
                 />
 
-            <TextView
-                android:id="@+id/profileName"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/profileEditName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:paddingStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="email : "
-                android:textColor="#828788"
-                android:textSize="16sp"
-                android:layout_marginTop="20dp"
-                />
-
-            <TextView
-                android:id="@+id/profileEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                android:text="Email"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 />
@@ -97,9 +87,9 @@
                 android:layout_marginTop="20dp"
                 />
 
-            <TextView
-                android:id="@+id/profileBio"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/profileEditBio"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="About"
                 android:paddingStart="10dp"
@@ -116,51 +106,50 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="contact : "
                 android:textColor="#828788"
-                android:textSize="16sp"
-                android:layout_marginTop="20dp"
-                />
+                android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/profilePhone"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/profileEditPhone"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Phone"
                 android:paddingStart="10dp"
+                android:text="Phone"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                />
+                android:textSize="24sp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/profileEdit"
-        android:layout_width="150dp"
+        android:id="@+id/profileSave"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:background="@color/app_theme"
-        android:text="Edit Profile"
+        android:text="Save Chamges"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/verticalLayout" />
+
     <Button
-        android:id="@+id/profileReset"
-        android:layout_width="150dp"
+        android:id="@+id/btnCancel"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
+        android:text="Cancel"
         android:background="@color/app_theme"
-        android:text="Reset Password"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/profileSave" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

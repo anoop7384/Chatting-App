@@ -3,4 +3,6 @@
     <string name="upload_profile_picture">upload Profile Picture</string>
     <string name="changepic">ChangePic</string>
     <string name="userprofile">UserProfile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

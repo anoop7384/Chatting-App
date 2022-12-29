@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:paddingStart="10dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/chat_box2"
@@ -17,43 +17,59 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingEnd="10dp">
+            android:gravity="start"
+            android:minWidth="40dp"
+            android:orientation="vertical"
+            android:layout_marginEnd="10dp">
+
+            <ImageView
+                android:id="@+id/receiveImageView"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:maxWidth="300dp"
+                android:maxHeight="150dp"
+                app:srcCompat="@android:drawable/ic_menu_gallery" />
 
             <TextView
                 android:id="@+id/txt_receive_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="This is received message"
+                android:paddingStart="8dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="5dp"
+
+                android:text="T"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:id="@+id/txt_receive_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:gravity="bottom"
-                    android:text="10:30"
-                    android:textColor="@color/white"
-                    android:textSize="8sp" />
+            <TextView
+                android:id="@+id/txt_receive_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="bottom"
+                android:paddingStart="8dp"
+                android:paddingBottom="3dp"
+                android:text="23 Dec 10:30"
+                android:textColor="@color/white"
+                android:textSize="8sp" />
 
-                <TextView
-                    android:id="@+id/txt_receive_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="30/10/22"
-                    android:textColor="@color/white"
-                    android:textSize="8sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/txt_receive_date"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="5"-->
+            <!--                    android:text="30/10/22"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="8sp" />-->
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
         </LinearLayout>
 
     </RelativeLayout>

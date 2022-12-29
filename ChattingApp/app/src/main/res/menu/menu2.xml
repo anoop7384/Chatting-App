@@ -4,4 +4,8 @@
         android:title="Info"
         >
     </item>
+    <item android:id="@+id/delete"
+        android:title="Delete Contact"
+        >
+    </item>
 </menu>
